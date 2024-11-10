@@ -1,1 +1,26 @@
-console.log('Happy developing ✨')
+import express, {Express} from "express";
+import dotenv from "dotenv";
+import {profilesHandler} from "./routes/profiles";
+
+dotenv.config();
+
+const app: Express = express();
+const port = process.env.PORT || 3000;
+
+const apiV1 = express.Router();
+const profileRouter = express.Router();
+const miningRouter = express.Router();
+
+profileRouter.get('/', profilesHandler)
+
+// apiV1 = /api/v1/, .use('path') = /api/v1/path
+apiV1.use('/profiles', profileRouter)
+apiV1.use('/mining/', miningRouter)
+
+app.use('/api/v1', apiV1)
+
+app.listen(port, () => {
+  console.log(`[server]: Server is running at http://localhost:${port}`);
+});
+
+// https://stackoverflow.com/questions/27712768/how-to-modularize-routing-with-node-js-express
