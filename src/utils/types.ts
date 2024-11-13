@@ -1,29 +1,12 @@
-export interface PowderAmount {
-  spent: number,
-  current: number,
-  total: number
-}
-
-export interface Powder {
-  mithril: PowderAmount,
-  gemstone: PowderAmount,
-  glacite: PowderAmount
-}
-
 export interface MiningStats {
   mining_core: {
-    nodes: {
-      // boolean when a perk is togglable
-      // special_0 is potm
-      [node_name: string]: number | boolean
-    },
+    nodes: HotmNodeNames,
     tokens_spent: number
   }
 }
 
-
 // https://github.com/SkyCryptWebsite/SkyCrypt/blob/development/src/constants/hotm.js
-export interface NodeNames {
+export interface HotmNodeNames {
   // HOTM 10
   gemstone_infusion: number;
   crystalline: number;

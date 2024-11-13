@@ -1,10 +1,9 @@
 import express from "express";
-import {levelHandler, powderAmountHandler} from "./handlers";
+import {hotmHandler} from "./handlers";
 
 const hotmRouter = express.Router();
 
 // Base: /api/v1/hotm
-hotmRouter.get('/powders', powderAmountHandler)
-hotmRouter.get('/level', levelHandler)
+hotmRouter.get('/', hotmHandler)
 
 export default hotmRouter;

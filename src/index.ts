@@ -2,8 +2,8 @@ import express, {Express} from "express";
 import dotenv from "dotenv";
 import profileRouter from "./routes/profiles";
 import hotmRouter from "./routes/hotm";
-import {SkyblockProfile, SkyblockProfileData} from "./api/profiles";
-import {MiningStats} from "./utils/types";
+import {fillMissingKeys, SkyblockProfile, SkyblockProfileData} from "./api/profiles";
+import {MiningStats, HotmNodeNames} from "./utils/types";
 
 dotenv.config();
 
@@ -25,7 +25,8 @@ app.use('/test', async () => {
 
     await profileData.fetchProfileData()
     const data = profileData.memberData as MiningStats;
-    console.log(data.mining_core.nodes, data.mining_core.tokens_spent);
+
+    console.log(data.mining_core.nodes);
   } catch (e) {
     console.error(e)
   }
