@@ -14,6 +14,7 @@ const cacheControlMiddleware = (req: Request, res: Response, next: NextFunction)
 };
 
 const apiV1 = express.Router();
+apiV1.use(cacheControlMiddleware)
 // apiV1 = /api/v1/, .use('path') = /api/v1/path
 apiV1.use('/profiles', profileRouter)
 apiV1.use('/hotm', hotmRouter)
