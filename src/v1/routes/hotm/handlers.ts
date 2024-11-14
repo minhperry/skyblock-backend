@@ -1,7 +1,5 @@
 import {Request, Response} from "express"
 import {SkyblockProfile, SkyblockProfileData} from "../../api/profiles";
-import {skyblock} from "../../api/client";
-import Hypixel from "hypixel-api-reborn";
 
 // /api/v1/hotm?name=Name&profile=PNAME
 export async function hotmHandler(req: Request, res: Response) {
