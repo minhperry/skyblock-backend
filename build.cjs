@@ -6,7 +6,7 @@ esbuild.build({
   outfile: './dist/server.backend.js',      // Output file
   bundle: true,                     // Bundle all dependencies
   platform: 'node',                 // Set platform to Node.js
-  target: 'node16',                 // Adjust based on your Node version
-  sourcemap: true,                  // Optional, for debugging
+  target: 'node22',                 // Adjust based on your Node version
+  sourcemap: false,                  // Optional, for debugging
   external: [],                     // Any modules you want to exclude
 }).catch(() => process.exit(1));
