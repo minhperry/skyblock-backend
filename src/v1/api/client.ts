@@ -1,5 +1,6 @@
 import dotenv from 'dotenv'
 import Hypixel from 'hypixel-api-reborn'
+import {SkyblockProfile} from "hypixel-api-reborn/typings";
 
 dotenv.config()
 
@@ -12,6 +13,12 @@ export function skyblock(player: string) {
   function profiles() {
     return client.getSkyblockProfiles(player)
   }
-  
-  return {profiles}
+
+  // Should only be called when name and id is verified
+  async function profile(profileId: string) {
+    const profilez = await profiles();
+    return profilez.find((p) => p.profileId === profileId) as Hypixel.SkyblockProfile;
+  }
+
+  return {profiles, profile}
 }

@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon --exec node src/index.ts"
+    "dev": "npx tsx --watch src/v1/index.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.5",

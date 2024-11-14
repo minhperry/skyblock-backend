@@ -1,6 +1,8 @@
 export interface MiningStats {
   mining_core: {
-    nodes: HotmNodeNames,
+    nodes: {
+      [key: string]: number | boolean;
+    },
     tokens_spent: number
   }
 }

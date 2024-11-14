@@ -2,7 +2,7 @@ import express, {Express} from "express";
 import dotenv from "dotenv";
 import profileRouter from "./routes/profiles";
 import hotmRouter from "./routes/hotm";
-import {fillMissingKeys, SkyblockProfile, SkyblockProfileData} from "./api/profiles";
+import {SkyblockProfile, SkyblockProfileData} from "./api/profiles";
 import {MiningStats, HotmNodeNames} from "./utils/types";
 
 dotenv.config();
