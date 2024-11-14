@@ -11,28 +11,25 @@ export async function hotmHandler(req: Request, res: Response) {
     return
   }
 
-  const profile = await SkyblockProfile.create(name);
-
   const pName = req.query.profile as string;
   if (!pName) {
     res.status(400).json({message: 'No profile name provided!'});
     return
   }
 
+
+  const profile = await SkyblockProfile.create(name);
   const profileUuid = profile.findByProfileName(pName)
 
   if (!profileUuid) {
-    res.status(404).json({message: `Profile ${name} not found!`});
+    res.status(404).json({message: `Profile ${pName} not found!`});
     return
   }
 
   const profileData = new SkyblockProfileData(profile, profileUuid)
   await profileData.fetchProfileData()
-  // const powderz = await getPowders(name, profileUuid)
-  // console.log(powderz);
   res.status(200).json(
     postProcessMiningData(profileData.memberData.mining_core)
-    //profileData.memberData.mining_core
   );
 }
 

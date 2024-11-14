@@ -26,7 +26,7 @@ export function profilesHandler(req: Request, res: Response) {
         ret.push({
           profileId: p.profileId,
           profileName: p.profileName,
-          gameMode: p.me.gameMode,
+          gameMode: p.me.gameMode || 'normal',
           selected: p.selected
         })
       })
@@ -38,7 +38,7 @@ export function profilesHandler(req: Request, res: Response) {
 }
 
 // Either &uuid=UUID and &pName=PNAME, but not both
-// /api/v1/profile?name=NAME&<the other one>
+// /api/v1/profiles/profile?name=NAME&<the other one>
 export function profileHandler(req: Request, res: Response) {
   const name = req.query.name as string;
   if (!name) {
@@ -77,6 +77,7 @@ export function profileHandler(req: Request, res: Response) {
     })
 }
 
+// TODO: this one kinda useless
 // /api/v1/profiles/selected?name=NAME
 export function selectedProfileHandler(req: Request, res: Response) {
   const name = req.query.name as string;
