@@ -17,20 +17,7 @@ apiV1.use('/hotm', hotmRouter)
 
 // apiV1.use('/mining/', miningRouter)
 
-app.use('/api/v1', apiV1)
-app.use('/test', async () => {
-  try {
-    const profile = await SkyblockProfile.create('minhperry02')
-    const profileData = new SkyblockProfileData(profile, profile.findByProfileName('Papaya') as string)
-
-    await profileData.fetchProfileData()
-    const data = profileData.memberData as MiningStats;
-
-    console.log(data.mining_core.nodes);
-  } catch (e) {
-    console.error(e)
-  }
-})
+app.use('/', apiV1)
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
