@@ -20,7 +20,7 @@ export class SkyblockProfile {
       await data.fillMap()
       return data
     } catch (e) {
-      throw new Error(ErrorMessage.PROFILE_CREATION_FAILED());
+      throw new Error(ErrorMessage.PROFILE_CREATION_FAILED() + e);
     }
   }
 
